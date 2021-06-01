@@ -1,0 +1,303 @@
+body{
+    min-height: 100vh;
+    display: -ms-flexbox;
+    align-items: center;
+    background: #d9eff5;
+    padding: 15px;
+    font-family: 'Lato', sans-serif;
+}
+.uploadItem{
+    width: 35%;
+    height: 0px;
+    margin: auto;
+    margin-top: 60px;
+    text-align: center;
+    color: white;
+    border: 5px dashed white;
+    box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+
+    z-index: 20;
+    transition: all 0.5s ease-out;
+}
+#uploadItem2{
+    background: radial-gradient(ellipse at center, #e96253 0, #ec5745 100%);
+}
+.uploadImg{
+    background-color: white;
+    width:100%;
+    height: 100%;
+    display: none;
+}
+.uploadIcon{
+    font-size: 100px;
+    margin-top: 70px;
+}
+label{
+    cursor: pointer;
+}
+.selectFile:hover{
+    cursor: pointer !important;
+    transform: scale(1.05,1.05);
+}
+.selectFile{
+    width:35%;
+    margin: auto;
+    margin-top: 30px;
+    height: 50px;
+    background: #fff;
+    border-radius: 5px;
+    font-size: 1.2em;
+    line-height: 50px;
+    text-align: center;
+    white-space: nowrap;
+    text-transform: uppercase;
+    font-weight: 400;   
+    box-shadow: 0 1px 1px gray;
+    cursor: pointer;
+}
+.selectFile #label1,.selectFile #label2{
+    width: 100%;
+    height: 100%;
+}
+.selectFile #label2{
+    color: #ec5745;
+}
+.mergeButton{
+    background-color: white;
+    background-size: 100% 100%;
+    width: 20%;
+    height: 80px;
+    margin-top: 100px;
+    margin-left: 40%;
+    border-radius: 5px;
+    border:none !important;
+    outline: none !important;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    transition: 0.5s;
+    -webkit-box-shadow: 0px 7px 29px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 7px 29px -5px rgba(0,0,0,0.75);
+    box-shadow: 0px 7px 29px -5px rgba(0,0,0,0.75);
+}
+.mergeButton:hover{
+    transform: scale(1.01,1.03);
+    background: radial-gradient(ellipse at center, #fcbc34 10%, #ff9a00 90%);
+}
+
+#empty_mem{
+    position: fixed;
+    right: 60px;
+    top: 100px;
+    background: #d9534f;
+    border-color: #d43f3a;
+    color: #FFF;
+    border:none !important;
+    outline: none !important;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: bold;
+    transition: .4s;
+   
+}
+#empty_reg{
+    position: fixed;
+    right: 60px;
+    top: 250px;
+    background: #d9534f;
+    border-color: #d43f3a;
+    color: #FFF;
+    border:none !important;
+    outline: none !important;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: bold;
+    transition: .4s;
+   
+}
+#empty_reg:hover{
+    background: #c93833;
+    -webkit-box-shadow: 0px 7px 29px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 7px 29px -5px rgba(0,0,0,0.75);
+    box-shadow: 0px 7px 10px -5px rgba(0,0,0,0.75);
+}
+#empty_mem:hover{
+    background: #c93833;
+    -webkit-box-shadow: 0px 7px 29px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 7px 29px -5px rgba(0,0,0,0.75);
+    box-shadow: 0px 7px 10px -5px rgba(0,0,0,0.75);
+}
+    
+#run{
+background: radial-gradient(ellipse at center, #fcbc34 10%, #ff9a00 90%);
+margin-top: 400px;
+}
+.compileResualtContent{
+    width: 300px;
+    min-height: 200px;
+    height: auto;
+    background-image: url("../img/vertical-letter.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    display: none;
+    left: 50%;
+    top: 250px;
+    transition:0.2s;
+    transform: translate(-50%, -50%);
+      
+}
+.compileResualtMsg{
+    color: black;
+    max-width: 460px;
+    height: auto;
+    margin: 20px;
+    position: relative;
+    margin-left: 70px;
+    margin-top: 70px;
+    font-size: 20px;
+    text-align: center;
+    
+
+}
+p { word-break: break-all }
+
+.codeStatus{
+    width: 600px;
+    height: 200px;
+    background-image: url("../img/title3.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    position: fixed;
+    left: 30px;
+    top:30px;
+}
+
+.runPage{
+    display: none;
+}
+.registersContent   {
+    width: 332px;
+    margin-left: 10px;
+
+}
+.register{
+    width: 100%;
+    height: 30px;
+    border: 1px gray solid;
+}
+.registerImg{
+    width: 30px;
+    height: 30px;
+    float: left;
+    border-bottom: 1px solid gray;
+    border-right: 1px solid gray;
+
+}
+.registerTxt{
+    width: 300px;
+    height: 30px;
+    float: left;
+    font-size: 14px;
+    background-color: white;
+    border-bottom: 1px gray solid;
+}
+.registerTxt >p{
+    margin-top: 3px;
+    margin-left: 10px;
+}
+.btn2{ 
+    position: fixed;
+    top: 400px;
+    left: 800px;
+    width: 15%;
+    height: 80px;
+
+    
+    border-radius: 5px;
+    border:none !important;
+    outline: none !important;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    transition: 0.5s;
+    background: radial-gradient(ellipse at center, #fcbc34 10%, #ff9a00 90%);
+    background-size: 100% 100%;
+    -webkit-box-shadow: 0px 7px 29px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 7px 29px -5px rgba(0,0,0,0.75);
+    box-shadow: 0px 7px 29px -5px rgba(0,0,0,0.75);
+}
+.btn1{
+    position: fixed;
+    top: 400px;
+    left: 500px;
+    width: 15%;
+    height: 80px;
+
+
+    border-radius: 5px;
+    border:none !important;
+    outline: none !important;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    transition: 0.5s;
+    background: radial-gradient(ellipse at center, #fcbc34 10%, #ff9a00 90%);
+    background-size: 100% 100%;
+    -webkit-box-shadow: 0px 7px 29px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 7px 29px -5px rgba(0,0,0,0.75);
+    box-shadow: 0px 7px 29px -5px rgba(0,0,0,0.75);
+
+}
+
+.btn2:hover ,.btn1:hover{
+    transform: scale(1.04,1.02);
+}
+.runInfo{
+    position:fixed;
+    width: 300px;
+}
+
+.firstCol{
+    width: 90%;
+    height: 210px;
+    margin: auto;
+    background-image: url("../img/title2.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    display: none;
+    
+}
+.firstDetail{
+    margin-left: 110px;
+    margin-top:100px;
+}
+
+.thirdCol{
+    width: 100% !important;
+    height: 100px;
+    margin: auto;
+    margin-top: 20px;
+    background-image: url("../img/title6.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    transition: 0.5s;
+    display: none;
+    position: absolute;
+}
+.thirdDetail{
+    position: relative;
+    margin-left: 150px;
+    margin-top:70px;
+    height: auto;
+    width: 95% !important;
+}
+.thirdTitle{
+    color:red;
+    margin-top: 25px;
+    margin-left: 145px;
+}

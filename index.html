@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    
+	<title></title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+
+	<!-- reference your copy Font Awesome here (from our CDN or by hosting yourself) -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <style>
+        button
+        {
+            display: none;
+            margin-top: 20px;
+        }
+        .bit-32
+        {
+            position: absolute;
+            left:100px;
+        }
+        .runInfo
+        {
+            position: absolute;
+            left:50px;
+        }
+        .all
+        {
+            position: absolute;
+            left:160px;
+        }
+        
+    </style>
+</head>
+<div class="modal fade" id="my_modal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">×</button>
+          <h4 id="my_title" class="modal-title" style="text-align:right;">Assembly Errors</h4>
+        </div>
+        <div class="modal-body"> 
+            <div id="all_text"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">close</button>
+        </div>
+      </div>
+      
+    </div>
+</div>
+<body id="myPage">
+    <div class="container">
+        <div class="uploadItem" id="uploadItem2">
+            <img  class="uploadImg" id="uploadImg2"> 
+            <div class="uploadContent" id="uploadContent2">
+                <i class="fas fa-cloud-upload-alt uploadIcon"></i>
+                <h3 id="file-name">File </h3>
+                <p id="file-detail">upload your code ..</p>
+            </div>
+            <div class="uploadBotton">
+                <div class="selectFile">       
+                    <label for="file2" id="label2">Select file</label>                   
+                    <input type="file" name="files[]" id="file2" accept=".asm" style="display: none">
+                </div>
+            </div>
+        </div>
+    
+        <div class="merge">       
+            <button  id="compile" class="mergeButton">compile</button>
+        </div>
+    </div>
+
+    <div class="compileResualtContent">
+        <p class="compileResualtMsg"></p>
+    </div>
+
+    <div class="runPage row">
+        <div class="runInfo">
+
+        </div>
+        <div class="col-sm-4">
+            <div class="firstCol">
+                <div class="firstDetail">
+    
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+
+                <div class="registersContent">
+                    <div class="register" id="r1">
+                        <img class="registerImg" id="r1-Img" src="./img/R0.jpg">
+                        <div class="registerTxt"><p  id="r1-txt"></p></div>
+                    </div>
+                    <div class="register" id="r2">
+                        <img class="registerImg" id="r2-Img" src="./img/R1.jpg">
+                        <div class="registerTxt"><p  id="r2-txt"></p></div>
+                    </div>
+                    <div class="register" id="r3">
+                        <img class="registerImg" id="r3-Img" src="./img/R2.jpg">
+                        <div class="registerTxt"><p  id="r3-txt"></p></div>
+                    </div>
+                    <div class="register" id="r4">
+                        <img class="registerImg" id="r4-Img" src="./img/R3.jpg">
+                        <div class="registerTxt"><p  id="r4-txt"></p></div>
+                    </div>
+                    <div class="register" id="r5">
+                        <img class="registerImg" id="r5-Img" src="./img/R4.jpg">
+                        <div class="registerTxt"><p  id="r5-txt"></p></div>
+                    </div>
+                    <div class="register" id="r6">
+                        <img class="registerImg" id="r6-Img" src="./img/R5.jpg">
+                        <div class="registerTxt"><p  id="r6-txt"></p></div>
+                    </div>
+                    <div class="register" id="r7">
+                        <img class="registerImg" id="r7-Img" src="./img/R6.jpg">
+                        <div class="registerTxt"><p  id="r7-txt"></p></div>
+                    </div>
+                    <div class="register" id="r8">
+                        <img class="registerImg" id="r8-Img" src="./img/R7.jpg">
+                        <div class="registerTxt"><p  id="r8-txt"></p></div>
+                    </div>
+                    <div class="register" id="r9">
+                        <img class="registerImg" id="r9-Img" src="./img/R8.jpg">
+                        <div class="registerTxt"><p  id="r9-txt"></p></div>
+                    </div>
+                    <div class="register" id="r10">
+                        <img class="registerImg" id="r10-Img" src="./img/R9.jpg">
+                        <div class="registerTxt"><p  id="r10-txt"></p></div>
+                    </div>
+                    <div class="register" id="r11">
+                        <img class="registerImg" id="r11-Img" src="./img/R10.jpg">
+                        <div class="registerTxt"><p  id="r11-txt"></p></div>
+                    </div>
+                    <div class="register" id="r12">
+                        <img class="registerImg" id="r12-Img" src="./img/R11.jpg">
+                        <div class="registerTxt"><p  id="r12-txt"></p></div>
+                    </div>
+                    <div class="register" id="r13">
+                        <img class="registerImg" id="r13-Img" src="./img/R12.jpg">
+                        <div class="registerTxt"><p  id="r13-txt"></p></div>
+                    </div>
+                    <div class="register" id="r14">
+                        <img class="registerImg" id="r14-Img" src="./img/R13.jpg">
+                        <div class="registerTxt"><p  id="r14-txt"></p></div>
+                    </div>
+                    <div class="register" id="r15">
+                        <img class="registerImg" id="r15-Img" src="./img/R14.jpg">
+                        <div class="registerTxt"><p  id="r15-txt"></p></div>
+                    </div>
+                    <div class="register" id="r16">
+                        <img class="registerImg" id="r16-Img" src="./img/R15.jpg">
+                        <div class="registerTxt"><p  id="r16-txt"></p></div>
+                    </div>
+            
+                </div>
+        </div>
+        <div class="col-sm-5">
+            <div class="thirdCol">
+                <h4 class="thirdTitle">The lines of memory that used in running </h4>
+                <div class="thirdDetail">
+    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="all"></div>
+    
+    <button id="frun" class="btn2" type="button">run anyway</button>
+    <button id="start"  class="btn1" type="button">start again</button>
+    <button id="continue" class="btn2"  type="button">continue</button>
+    <button id="empty_mem" type="button">empty memory</button>
+    <button id="empty_reg" type="button">reset registers</button>
+    <button id="run"class="mergeButton" type="button">run</button>
+    <button id="next" class="btn1" type="button" style="top: 550px; left: 400px;">next cycle</button>
+    <button id="finish" class="btn2" type="button" style="top: 550px; left: 700px;">final result</button>
+    
+	<script>
+
+
+    var cw = $('.uploadItem').width();
+    $('.uploadItem').css({'height':cw+'px'});
+    
+    // status 0:no file selected 1:file selected
+    var status=0;
+
+    $('#file2').change(function(){
+        if(($("#file2"))[0].files[0]==null)
+            return;
+        status=1;
+        $("#file-detail").css({"display":"none"});
+        $(".uploadBotton").css({"margin-top":"60px"});
+        $("#file-name").text(($("#file2"))[0].files[0].name);
+        // alert(($("#file2"))[0].files[0].name);
+         asm_url =($("#file2"))[0].files[0].name;
+    });
+
+    
+    $("#compile").show();
+    $("#empty_mem").show();
+    $("#empty_reg").show();
+    var my_text = $(".all");
+
+    function doCycle()
+    {
+        my_text.html('<br/>');
+        var asm_ins = data.asm_ins[pc[cur_cycle]];
+        var sit = "ran"; 
+        if(asm_ins==null)
+        {
+            asm_ins = "Unknown";
+            sit = "Unknown";
+        }
+        if(cur_cycle==mac_err_cycle)
+        {
+            $(".runInfo").html(`<h4>A serious error happened in line ${pc[cur_cycle]+1}: ${asm_ins}<br/></h4>`+`<h3>${mac_err}</h3>`);
+            $("#next").hide();
+            return;
+        }
+        if(cur_cycle==num_of_cycles)
+            $("#next").hide();
+
+        $(".runInfo").html("<h3>data in cycle "+cur_cycle+" :</h3>"+"Line : "+`${pc[cur_cycle]+1}`+"<br/>");
+        
+        if(asm_ins.match(/^\s*$/)!=null)
+        {
+            asm_ins = "Empty Line!";
+            sit = "ignored";
+        }
+        $(".runInfo").append(`The Assembly Ins : ${asm_ins}<br/>`);
+        var error = asm_errs[pc[cur_cycle]];
+        if(used_mems[pc[cur_cycle]]=="ERR")
+        {
+            sit = "ignored";
+            $(".runInfo").append(`${error}<br/>`);
+        }
+        
+        $(".runInfo").append(`situation : ${sit}<br/><br/>`)
+
+        var i=1;
+        for(var x of Object.keys(register[cur_cycle])){
+            $("#r"+i+"-txt").html(`<span id='${x}'>`+register[cur_cycle][x]+"</span></br>");
+            i++;
+        }
+        $(".runInfo").append("</br>memory changes :<br/>");
+        if(memory[cur_cycle].length==0)
+        $(".runInfo").append("nothing!<br/>");
+        for(var x of Object.keys(memory[cur_cycle]))
+            $(".runInfo").append("line "+x+" : "+"<span class='bit-32'>"+memory[cur_cycle][x]+"</span><br/>");
+        $(`#${changed_reg[cur_cycle]}`).css("color","red");
+        cur_cycle++;
+    }
+    function showAllErrs()
+    {
+        $("#my_title").html("Assembly Errors");
+        $("#all_text").html('');
+        for(x of Object.values(asm_errs))
+             $("#all_text").append(x+"<br/>");
+    }
+    function showAllUsedMems()
+    {
+        $("#my_title").html("The lines of memory that used in running");
+        $("#all_text").html('');
+        for(x of Object.values(used_mems))
+             $("#all_text").append(x+"<br/>");
+    }
+    function showRegStatics()
+    {
+        $("#my_title").html("Registors Statics");
+        $("#all_text").html('');
+        for(var x=0;x<16;x++)
+            $("#all_text").append(`Registor ${x} : ${read_num[x]} read and ${write_num[x]} write<br/>`);
+    }
+    $("#empty_mem").click(function(){
+        var res = $.ajax({
+            url : "reset-memory.php"
+        });
+        res.done(function (response, textStatus, jqXHR){
+            if(response=="success")
+                alert("The memory became empty successfully!");
+            else
+                alert(response);
+        });
+        res.fail(function (jqXHR, textStatus, errorThrown){
+            alert(textStatus);
+        });
+    });
+    $("#empty_reg").click(function(){
+        var res = $.ajax({
+            url : "reset-registers.php"
+        });
+        res.done(function (response, textStatus, jqXHR){
+            if(response=="success")
+                alert("The registers became empty successfully!");
+            else
+                alert(response);
+        });
+        res.fail(function (jqXHR, textStatus, errorThrown){
+            alert(textStatus);
+        });
+    });
+    $("#compile").click(function()
+    {
+        var time_sleep;
+        if(status==1)
+        {
+            $(".uploadBotton").hide();
+            $("#uploadImg2").fadeIn(1500);
+            $("#uploadContent2").css({"display":"none"});
+            
+            /*var image2 = document.getElementById("uploadImg2");
+            image2.src = "./img/upload-loader2.gif";*/
+            
+
+            $("#empty_mem").hide();
+            $("#empty_reg").hide();
+            this.style.display = "none";
+
+            request = $.ajax({
+                url: "all-in-one.php",
+                type: "POST",
+                data: {asm : asm_url}
+            });
+
+            // Callback handler that will be called on success
+            request.done(function (response, textStatus, jqXHR){
+                data = JSON.parse(response);
+                memory = data.memory;
+                pc = data.pc;
+                num_of_cycles = data.num;
+                register = data.register;
+                changed_reg = data.changed_reg;
+                read_num = data.read;
+                write_num = data.write;
+                asm_errs = data.asm_errs; 
+                mac_err = data.mac_err;
+                mac_err_cycle = data.mac_err_cycle;
+                mem_use = data.mem_use;
+                used_mems = data.used_mems;  /// ARRAY OF NOT NULL LINES OF MEMORY IN END OF RUNNING
+
+                if(asm_errs.length==0)
+                {
+                    time_sleep = 7600;
+                    $("#uploadImg2").attr("src","./img/upload-loader2.gif");
+                }
+                else
+                {
+                    time_sleep = 3600;
+                    $("#uploadImg2").attr("src","./img/upload-loader3.gif");
+                }
+                setTimeout(
+                function() 
+                {
+                    if(data.src_err=="asm")
+                    {
+                        my_text.html("BAD ERROR : "+data.run_time_err);
+                        $("start").show();
+                        return;
+                    }
+                    $(".uploadItem").hide();
+                    setTimeout(function(){
+                    $(".compileResualtContent").show().css("width","600px");                        
+                    }, 200);
+                    if(asm_errs.length==0)
+                    {
+                        $(".compileResualtMsg").text("Assembly Code Compiled To Machine Code Successfully!");
+                        $("#run").show().css({"background": "radial-gradient(ellipse at center, #fcbc34 10%, #ff9a00 90%)"});
+                        
+                    }
+                    else
+                    {
+                        /*var image2 = document.getElementById("uploadImg2");
+                        image2.src = "./img/upload-loader3.gif";*/
+                        
+                        $(".compileResualtMsg").text("");
+                        var i=0;
+                        for(x of Object.values(asm_errs)){
+                            if(i<3)
+                                $(".compileResualtMsg").append(x+"<br/>");
+                            i++;
+                        }
+                        if(i>=3)
+                            $(".compileResualtMsg").append("<a id='show_more' href='#my_modal' onclick='showAllErrs();'data-toggle='modal'>show all</a>"+"<br/><br/>");
+                        $("#frun").show();
+                        $("#start").show();
+                    }   
+                }, time_sleep);
+            });
+
+            // Callback handler that will be called on failure
+            request.fail(function (jqXHR, textStatus, errorThrown){
+                alert("problem in connect with php");
+                console.error(
+                    "The following error occurred: "+
+                    textStatus, errorThrown
+                );
+            });
+        }
+        else
+         alert("Select file please !");
+    });
+    $("#run").click(function(){
+        $("#run").hide();
+        $(".compileResualtContent").css("width","300px").hide(); 
+        if(data.src_err=="mac")
+        {
+            my_text.html("BAD ERROR : "+data.run_time_err);
+            $("#start").show();
+            return;
+        }
+        if(mac_err_cycle!=-1)
+        {
+            setTimeout(function(){
+                $(".compileResualtContent").show().css("width","600px");                        
+            }, 200);
+            $(".compileResualtMsg").text("The machine code couldn't be finished for a serious error : <br/>"+mac_err);
+
+            $("#start").show();
+            $("#continue").show();
+            return;
+        }
+        $(".runPage").show();
+        cur_cycle = 1;
+        doCycle();
+        $("#next").css("display","inline");
+        $("#finish").css("display","inline");
+    });
+    $("#frun").click(function(){
+        this.style.display = "none";
+        if(data.src_err=="mac")
+        {
+            my_text.html("BAD ERROR : "+data.run_time_err);
+            return;
+        }
+        if(mac_err_cycle!=-1)
+        {
+            setTimeout(function(){
+                $(".compileResualtContent").show().css("width","600px");                        
+            }, 200);
+            $(".compileResualtMsg").text("The machine code couldn't be finished for a serious error :<br/>"+mac_err);
+            $("#continue").show();
+            return;
+        }
+        $("#start").hide();
+        $("#next").css("display","inline");
+        $("#finish").css("display","inline");
+        cur_cycle = 1;
+        doCycle();
+    });
+    $("#continue").click(function(){
+        $("#continue").hide();
+        $("#start").hide();
+        $(".runPage").show();
+        $(".compileResualtContent").hide().css("width","300px"); 
+        $("#next").css("display","inline");
+        $("#finish").css("display","inline");
+        cur_cycle = 1;
+        doCycle();
+    });
+    $("#start").click(function(){
+        $("#start").css({"top":"400px","left":"500px"});
+        $(".compileResualtContent").hide().css("width","300px"); 
+        $(".uploadItem").hide();
+        $(".uploadBotton"). show();
+        $(".uploadItem").show();
+        $("#uploadImg2").hide();
+        $(".runPage").hide();
+        $(".firstCol").hide();
+        $(".thirdCol").hide().css("width","100px"); 
+        $("#uploadContent2").show();
+        
+        var image2 = document.getElementById("uploadImg2");
+        image2.src = "";
+        
+
+        this.style.display = "none";
+        $("#frun").hide();
+        $("#compile").show();
+        $("#empty_mem").show();
+        $("#empty_reg").show();
+        my_text.html("");
+    });
+    $("#next").click(function(){doCycle();});
+    $("#finish").click(function(){
+        $(".runInfo").html('');
+        my_text.html("<a id='show_more' href='#my_modal' onclick='showRegStatics();'data-toggle='modal'>Show Statics About Registors</a>");
+        $("#next").hide();
+        $("#start").show().css({"top":"550px","left":"600px"});
+        $(".firstCol").show();
+        this.style.display = "none";
+        $(".firstDetail").html(`<br/>Number Of Cycles : ${num_of_cycles}<br/><br/>`);
+        $(".firstDetail").append(`Memory Usage : ${mem_use*4} Byte<br/><br/>`);
+        $(".firstDetail").append("<div>Use Of Registors:<br/><br/></div>")
+        /*for(var x=0;x<16;x++)
+            $("#r"+x+"-txt").html(`<span>  ${read_num[x]} read and ${write_num[x]} write</span>`);*/
+
+        $(".thirdCol").show();
+        $(".thirdDetail").html("");
+        var i = 1;
+        for(x of Object.keys(used_mems))
+        {
+            if(i>15)
+            {
+                $(".thirdDetail").append("<a id='show_more' href='#my_modal' onclick='showAllUsedMems();'data-toggle='modal'>show all</a>"+"<br/><br/>");
+                break;
+            }
+            $(".thirdDetail").append(`<div>line ${x} : <span >${used_mems[x]}</span></div>`);
+            i++;
+        }
+        $(".thirdDetail").append("<br/><br/>");
+        var thirdDetailHeight=$(".thirdDetail").height();
+        $(".thirdDetail").hide();
+        setTimeout(function(){
+            $(".thirdCol").css("height",""+(thirdDetailHeight+300))                   
+        }, 100);
+        $(".thirdDetail").fadeIn();
+        // my_text.append("<br/>The last value of registors : <br/></br>");
+        var i=1;
+        for(var x of Object.keys(register[num_of_cycles])){
+            $("#r"+i+"-txt").html(`<span id='${x}'>`+register[num_of_cycles][x]+"</span></br>");
+            i++;
+        }
+
+    });
+
+    </script>
+    <script src="./js/jquery.min.js"></script>
+	<script src="./js/architecture.js"></script>
+</body>
+</html>
